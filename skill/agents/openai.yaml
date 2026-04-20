@@ -1,0 +1,4 @@
+interface:
+  display_name: "交接"
+  short_description: "收尾、续做、重建、校验"
+  default_prompt: "继续交接：先读交接三件套，再按需扩展读取并完成必要校验"
