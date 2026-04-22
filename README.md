@@ -168,7 +168,9 @@ Because repeated continuation fails when the status is stale, unverified, or too
 
 ### Is there a packaged release?
 
-Source install works today. A reproducible release package can be built locally with:
+Yes. Download the latest packaged artifact from [Releases](https://github.com/LCbeijing/jiaojie/releases/latest).
+
+If you want to build the same style of package locally:
 
 ```bash
 python3 scripts/build_release_package.py
@@ -176,7 +178,7 @@ python3 scripts/build_release_package.py
 
 ## Roadmap
 
-- Add a packaged GitHub Release artifact for direct download
+- Add more direct-download installation examples for different Codex environments
 - Add more regression fixtures for alias-heavy repositories
 - Expand multilingual docs beyond Chinese-first workflows
 - Add stronger repo-level examples for real-world handoff bundles
