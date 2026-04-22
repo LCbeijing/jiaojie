@@ -1,151 +1,60 @@
-# 交接 / jiaojie
+# <div align="center">jiaojie</div>
 
-**A Codex skill for reliable handoff, resume, rebuild, and document health validation.**
+<p align="center">
+  <strong>A handoff-first Codex skill for reliable resume, rebuild, and document health validation.</strong>
+</p>
 
-`jiaojie` turns messy thread-to-thread continuation into a disciplined workflow:
+<p align="center">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-16A34A?style=flat-square">
+  <img alt="Type" src="https://img.shields.io/badge/type-Codex%20Skill-0F172A?style=flat-square">
+  <img alt="Workflow" src="https://img.shields.io/badge/workflow-handoff--first-2563EB?style=flat-square">
+  <img alt="Validation" src="https://img.shields.io/badge/validation-script--backed-7C3AED?style=flat-square">
+</p>
+
+![jiaojie cover](./docs/images/cover.svg)
+
+## Why this exists
+
+Most thread-to-thread continuation breaks in one of four ways:
+
+1. the next thread re-explores the whole repository,
+2. stale conclusions survive after the code or docs changed,
+3. handoff notes become bloated and unusable,
+4. Windows plus PowerShell plus Chinese text creates false "corruption" alarms.
+
+`jiaojie` exists to stop that drift.
+
+It turns handoff into a repeatable workflow:
 
 - read the handoff bundle first,
 - expand only when needed,
-- avoid full-repo re-discovery,
-- validate before declaring a document healthy or broken,
-- keep main docs and handoff docs in sync.
+- validate before trusting a status claim,
+- keep main docs and handoff docs in sync,
+- reduce token waste in long-running projects.
 
-It is designed for real multi-session development work, especially when teams or agents frequently:
+## What it delivers
 
-- hand work from one thread to another,
-- resume after interruptions,
-- inherit stale or damaged handoff notes,
-- need to distinguish “terminal garble” from real document corruption,
-- want lower token waste and faster continuation.
+- A compact skill workflow for `收尾交接`, `继续交接`, and `重建交接`
+- Reference guides for mode routing, validation, sync, and Windows-safe writing
+- Script-backed checks for handoff structure, stale status, and encoding diagnosis
+- A read-only regression suite to keep the skill honest over time
 
----
+## Quick start
 
-## Why this skill exists
+### Option A: install from source
 
-Most agent handoffs fail in one of four ways:
-
-1. the next thread re-explores the whole repo,
-2. outdated conclusions survive after reality changed,
-3. handoff docs become bloated and unusable,
-4. Windows + PowerShell + Chinese text workflows produce false corruption alarms.
-
-`jiaojie` addresses those problems with a strict philosophy:
-
-- **minimal but sufficient handoff**
-- **progressive disclosure**
-- **validate before judging**
-- **status consistency across docs**
-
-This means:
-
-- faster resumes,
-- fewer repeated tokens,
-- less duplicated repo exploration,
-- safer document maintenance,
-- more trustworthy continuation prompts for future agents.
-
----
-
-## Core idea
-
-`jiaojie` is not “write more docs”.
-
-It is:
-
-- keep **stable facts** in `handoff.md`,
-- keep **current batch execution state** in `current-phase.md`,
-- keep **immediate startup instructions** in `next-thread-prompt.md`,
-- then validate the result with scripts before handing off.
-
----
-
-## Common use cases
-
-### 1. End-of-thread handoff
-
-When a work batch is about to end, use `jiaojie` to compress current reality into a handoff bundle for the next thread.
-
-### 2. Resume from an existing handoff
-
-When a new thread starts, use `jiaojie` to read the handoff bundle first, then continue directly without asking the user to repeat context.
-
-### 3. Rebuild stale or broken handoff
-
-When the handoff bundle is missing, outdated, contradictory, or clearly insufficient, use `jiaojie` to rebuild it from currently verifiable sources.
-
-### 4. Validate document health
-
-When a thread claims a main document is broken, `jiaojie` helps verify whether that is:
-
-- real corruption,
-- stale status,
-- or just display/encoding noise.
-
-### 5. Keep docs in sync after recovery
-
-If a main document becomes healthy again, `jiaojie` ensures the handoff bundle stops telling future agents that it is still broken.
-
----
-
-## What makes `jiaojie` different
-
-- **Handoff-first continuation** instead of repo-first continuation
-- **Script-backed validation** instead of guesswork
-- **Progressive disclosure references** instead of one bloated skill file
-- **Alias-safe validation** via `::kind` for non-standard filenames
-- **Read-only regression tests** for long-term maintenance
-
----
-
-## Repository layout
-
-```text
-jiaojie/
-├─ README.md
-├─ LICENSE
-├─ CONTRIBUTING.md
-├─ install.sh
-└─ skill/
-   ├─ SKILL.md
-   ├─ agents/
-   │  └─ openai.yaml
-   ├─ references/
-   │  ├─ mode-playbooks.md
-   │  ├─ handoff-file-contracts.md
-   │  ├─ validation-and-health.md
-   │  ├─ windows-encoding-safety.md
-   │  └─ status-sync-and-rebuild.md
-   └─ scripts/
-      ├─ validate_handoff.py
-      ├─ audit_doc_health.py
-      ├─ diagnose_encoding.py
-      └─ regression_readonly.py
+```bash
+git clone https://github.com/LCbeijing/jiaojie
+cp -R jiaojie/skill "${CODEX_HOME:-$HOME/.codex}/skills/jiaojie"
 ```
 
----
-
-## Quick install
-
-### Option A — one-line install
+### Option B: one-line install
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/LCbeijing/jiaojie/main/install.sh | bash
 ```
 
-This installs the skill into:
-
-- `$CODEX_HOME/skills/jiaojie` when `CODEX_HOME` is set
-- otherwise `~/.codex/skills/jiaojie`
-
-### Option B — manual install
-
-Clone the repo, then copy `skill/` into your Codex skills directory as `jiaojie`.
-
----
-
-## Verify the installation
-
-Run:
+### Verify the install
 
 ```bash
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/jiaojie/scripts/regression_readonly.py" --json
@@ -156,22 +65,81 @@ Expected result:
 - `"ok": true`
 - all tests passed
 
----
+## Download and release packaging
 
-## Best-fit environments
+`jiaojie` is a skill repository, so the packaging flow stays intentionally simple.
 
-`jiaojie` is especially strong when:
+Build a distributable zip locally with:
 
-- you use Codex or agentic workflows daily,
-- you often continue work across threads/sessions,
-- your projects rely on handoff docs,
-- you want to reduce repeated repo re-analysis,
-- you work in Chinese-heavy documentation environments,
-- you need safer Windows text handling.
+```bash
+python3 scripts/build_release_package.py
+```
 
-It can still be useful outside Chinese workflows, but the current prompts and phrasing are optimized for Chinese-language development handoff patterns.
+If you want a versioned package when publishing:
 
----
+```bash
+python3 scripts/build_release_package.py --version v0.1.0
+```
+
+This generates:
+
+- `dist/jiaojie-skill.zip`
+- `dist/jiaojie-skill.zip.sha256`
+
+Or, when `--version` is provided:
+
+- `dist/jiaojie-skill-v0.1.0.zip`
+- `dist/jiaojie-skill-v0.1.0.zip.sha256`
+
+## Typical use cases
+
+- End-of-thread handoff when a work batch is about to stop
+- Resume from an existing handoff bundle without asking the user to re-explain context
+- Rebuild a stale, contradictory, or missing handoff bundle
+- Verify whether a "broken" document is actually corrupted or only displayed incorrectly
+- Keep `handoff.md` aligned with the current state of the main project docs
+
+## Architecture
+
+### Workflow
+
+```mermaid
+flowchart LR
+  A["Current thread"] --> B["Read handoff bundle first"]
+  B --> C["Expand only the required sources"]
+  C --> D["Choose mode: handoff / resume / rebuild"]
+  D --> E["Run validation scripts"]
+  E --> F["Update docs with verified status"]
+  F --> G["Next thread starts from trusted context"]
+```
+
+## Comparison
+
+| Approach | Continuation speed | Drift resistance | Validation | Windows/Chinese safety | Long-term maintainability |
+| --- | --- | --- | --- | --- | --- |
+| Ad-hoc handoff notes | Low | Low | Manual | Weak | Low |
+| Generic prompt-only continuation | Medium | Low | Usually none | Weak | Medium |
+| `jiaojie` | High | High | Script-backed | Strong | High |
+
+## Repository layout
+
+```text
+jiaojie/
+├── README.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── SECURITY.md
+├── CODE_OF_CONDUCT.md
+├── install.sh
+├── skill/
+│   ├── SKILL.md
+│   ├── agents/openai.yaml
+│   ├── references/
+│   └── scripts/
+├── scripts/
+│   └── build_release_package.py
+└── docs/images/cover.svg
+```
 
 ## Example triggers
 
@@ -184,38 +152,46 @@ Typical user phrases that should trigger this skill:
 - `jiaojie`
 - `$jiaojie`
 
----
+## FAQ
 
-## Philosophy
+### Is this only for Chinese-language projects?
 
-`jiaojie` optimizes for:
+No. The workflow is general, but the current prompts and examples are optimized for Chinese development handoff patterns.
 
-- **professionalism** — structured handoff responsibility
-- **completeness** — mode routing, validation, sync, rebuild
-- **efficiency** — smaller prompts, fewer repeated reads
-- **reliability** — validation before claims
-- **maintainability** — read-only regression checks
+### Does it replace project documentation?
 
----
+No. It reduces continuation cost by structuring the handoff layer around the existing project docs.
+
+### Why not just write a longer prompt?
+
+Because repeated continuation fails when the status is stale, unverified, or too bloated to trust. `jiaojie` solves that with routing plus validation.
+
+### Is there a packaged release?
+
+Source install works today. A reproducible release package can be built locally with:
+
+```bash
+python3 scripts/build_release_package.py
+```
+
+## Roadmap
+
+- Add a packaged GitHub Release artifact for direct download
+- Add more regression fixtures for alias-heavy repositories
+- Expand multilingual docs beyond Chinese-first workflows
+- Add stronger repo-level examples for real-world handoff bundles
 
 ## Contributing
 
-Contributions are welcome.
+Contributions are welcome, especially if they improve:
 
-If you improve:
-
-- handoff quality,
 - validation accuracy,
-- installation stability,
-- multilingual usability,
-- or regression coverage,
-
-please open an issue or pull request.
+- install reliability,
+- multilingual clarity,
+- or regression coverage.
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
----
-
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT. See [LICENSE](./LICENSE).
