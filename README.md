@@ -67,7 +67,7 @@ Expected result:
 
 ## Download and release packaging
 
-Today, `jiaojie` is source-installable and release-package ready.
+`jiaojie` is a skill repository, so the packaging flow stays intentionally simple.
 
 Build a distributable zip locally with:
 
@@ -75,11 +75,21 @@ Build a distributable zip locally with:
 python3 scripts/build_release_package.py
 ```
 
+If you want a versioned package when publishing:
+
+```bash
+python3 scripts/build_release_package.py --version v0.1.0
+```
+
 This generates:
 
-- `dist/jiaojie-skill-<version>.zip`
-- `dist/jiaojie-skill-<version>.zip.sha256`
-- `dist/jiaojie-skill-<version>.json`
+- `dist/jiaojie-skill.zip`
+- `dist/jiaojie-skill.zip.sha256`
+
+Or, when `--version` is provided:
+
+- `dist/jiaojie-skill-v0.1.0.zip`
+- `dist/jiaojie-skill-v0.1.0.zip.sha256`
 
 ## Typical use cases
 

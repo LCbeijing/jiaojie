@@ -1,34 +1,39 @@
 <svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1280" height="720" rx="36" fill="#F8FAFC"/>
-  <rect x="0" y="0" width="1280" height="720" rx="36" fill="url(#bg)"/>
-  <rect x="64" y="68" width="1152" height="584" rx="30" fill="#FFFFFF" fill-opacity="0.9"/>
-  <rect x="700" y="86" width="450" height="404" rx="26" fill="#0F172A"/>
-  <rect x="738" y="130" width="374" height="240" rx="18" fill="#111827"/>
-  <text x="792" y="176" fill="#93C5FD" font-family="'Cascadia Code', 'Consolas', monospace" font-size="24">skill/</text>
-  <text x="792" y="214" fill="#E5E7EB" font-family="'Cascadia Code', 'Consolas', monospace" font-size="20">├── SKILL.md</text>
-  <text x="792" y="244" fill="#E5E7EB" font-family="'Cascadia Code', 'Consolas', monospace" font-size="20">├── agents/openai.yaml</text>
-  <text x="792" y="274" fill="#E5E7EB" font-family="'Cascadia Code', 'Consolas', monospace" font-size="20">├── references/</text>
-  <text x="824" y="304" fill="#CBD5E1" font-family="'Cascadia Code', 'Consolas', monospace" font-size="18">├── mode-playbooks.md</text>
-  <text x="824" y="332" fill="#CBD5E1" font-family="'Cascadia Code', 'Consolas', monospace" font-size="18">├── validation-and-health.md</text>
-  <text x="824" y="360" fill="#CBD5E1" font-family="'Cascadia Code', 'Consolas', monospace" font-size="18">└── status-sync-and-rebuild.md</text>
-  <rect x="756" y="396" width="338" height="62" rx="18" fill="#111827" stroke="#334155"/>
-  <text x="786" y="434" fill="#22C55E" font-family="'Cascadia Code', 'Consolas', monospace" font-size="18">{ "ok": true, "tests": 4/4 }</text>
+  <rect width="1280" height="720" rx="36" fill="url(#bg)"/>
+  <rect x="34" y="38" width="1212" height="644" rx="30" fill="white" fill-opacity="0.92"/>
 
-  <text x="104" y="180" fill="#0F172A" font-family="'Segoe UI', sans-serif" font-size="72" font-weight="700">jiaojie</text>
-  <text x="108" y="226" fill="#3B82F6" font-family="'Segoe UI', sans-serif" font-size="22" letter-spacing="1.6">HANDOFF-FIRST CODEX SKILL</text>
+  <text x="86" y="168" fill="url(#title)" font-family="'Segoe UI', sans-serif" font-size="88" font-weight="700" letter-spacing="-2">jiaojie</text>
+  <text x="92" y="214" fill="#2563EB" font-family="'Segoe UI', sans-serif" font-size="22" letter-spacing="2.4">HANDOFF-FIRST CODEX SKILL</text>
 
-  <rect x="108" y="284" width="10" height="180" rx="5" fill="#3B82F6"/>
-  <text x="144" y="332" fill="#0F172A" font-family="'Segoe UI', sans-serif" font-size="42" font-weight="700">Reliable resume.</text>
-  <text x="144" y="384" fill="#0F172A" font-family="'Segoe UI', sans-serif" font-size="42" font-weight="700">Validated rebuild.</text>
-  <text x="144" y="436" fill="#0F172A" font-family="'Segoe UI', sans-serif" font-size="42" font-weight="700">Lower token waste.</text>
+  <text x="90" y="324" fill="#0F172A" font-family="'Segoe UI', sans-serif" font-size="54" font-weight="700">Reliable handoff.</text>
+  <text x="90" y="386" fill="#0F172A" font-family="'Segoe UI', sans-serif" font-size="54" font-weight="700">Verified continuation.</text>
+  <text x="90" y="448" fill="#0F172A" font-family="'Segoe UI', sans-serif" font-size="54" font-weight="700">Lower token waste.</text>
 
-  <text x="144" y="520" fill="#475569" font-family="'Segoe UI', sans-serif" font-size="26">Built from real skill files, validation scripts, and regression output.</text>
-  <text x="144" y="558" fill="#475569" font-family="'Segoe UI', sans-serif" font-size="26">No fake UI. No invented screens.</text>
+  <text x="92" y="528" fill="#475569" font-family="'Segoe UI', sans-serif" font-size="28">Real files. Real validation. Real regressions.</text>
+  <text x="92" y="572" fill="#475569" font-family="'Segoe UI', sans-serif" font-size="28">No fake UI. Just the skill itself.</text>
+
+  <rect x="668" y="74" width="544" height="500" rx="28" fill="#0F172A"/>
+  <rect x="704" y="110" width="472" height="322" rx="18" fill="#111827"/>
+  <text x="740" y="156" fill="#93C5FD" font-family="'Cascadia Code', 'Consolas', monospace" font-size="28">skill/</text>
+  <text x="740" y="198" fill="#E5E7EB" font-family="'Cascadia Code', 'Consolas', monospace" font-size="22">|- SKILL.md</text>
+  <text x="740" y="236" fill="#E5E7EB" font-family="'Cascadia Code', 'Consolas', monospace" font-size="22">|- agents/openai.yaml</text>
+  <text x="740" y="274" fill="#E5E7EB" font-family="'Cascadia Code', 'Consolas', monospace" font-size="22">|- references/</text>
+  <text x="774" y="312" fill="#CBD5E1" font-family="'Cascadia Code', 'Consolas', monospace" font-size="20">|- mode-playbooks.md</text>
+  <text x="774" y="346" fill="#CBD5E1" font-family="'Cascadia Code', 'Consolas', monospace" font-size="20">|- validation-and-health.md</text>
+  <text x="774" y="380" fill="#CBD5E1" font-family="'Cascadia Code', 'Consolas', monospace" font-size="20">`- status-sync-and-rebuild.md</text>
+
+  <rect x="724" y="456" width="396" height="76" rx="18" fill="#111827" stroke="#334155"/>
+  <text x="758" y="502" fill="#22C55E" font-family="'Cascadia Code', 'Consolas', monospace" font-size="20">{ "ok": true, "tests": 4/4 }</text>
 
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="720" gradientUnits="userSpaceOnUse">
       <stop stop-color="#EEF2FF"/>
       <stop offset="1" stop-color="#ECFDF5"/>
+    </linearGradient>
+    <linearGradient id="title" x1="86" y1="88" x2="510" y2="210" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
     </linearGradient>
   </defs>
 </svg>
