@@ -65,6 +65,22 @@ Expected result:
 - `"ok": true`
 - all tests passed
 
+## Download and release packaging
+
+Today, `jiaojie` is source-installable and release-package ready.
+
+Build a distributable zip locally with:
+
+```bash
+python3 scripts/build_release_package.py
+```
+
+This generates:
+
+- `dist/jiaojie-skill-<version>.zip`
+- `dist/jiaojie-skill-<version>.zip.sha256`
+- `dist/jiaojie-skill-<version>.json`
+
 ## Typical use cases
 
 - End-of-thread handoff when a work batch is about to stop
